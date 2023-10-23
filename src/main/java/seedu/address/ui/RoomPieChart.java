@@ -20,7 +20,18 @@ public class RoomPieChart extends UiPart<Region> {
     private final Logger logger = LogsCenter.getLogger(RoomPieChart.class);
 
     @FXML
-    public StackPane roomPieChartPane;
+    private StackPane roomPieChartPane;
+
+    /**
+     * Constructor for room pie chart with provided roomPieChartPane (For Testing purposes).
+     * @param bookingList the list of bookings
+     * @param roomPieChartPane the StackPane for the pie chart
+     */
+    RoomPieChart(ObservableList<Booking> bookingList, StackPane roomPieChartPane) {
+        super(FXML);
+        this.roomPieChartPane = roomPieChartPane;
+        initRoomPieChart(bookingList);
+    }
 
     /**
      * Constructor for room pie chart.
@@ -28,7 +39,10 @@ public class RoomPieChart extends UiPart<Region> {
      */
     public RoomPieChart(ObservableList<Booking> bookingList) {
         super(FXML);
+        initRoomPieChart(bookingList);
+    }
 
+    private void initRoomPieChart(ObservableList<Booking> bookingList) {
         int numOfOccupiedRooms = 0;
         for (Booking booking : bookingList) {
             numOfOccupiedRooms++;
