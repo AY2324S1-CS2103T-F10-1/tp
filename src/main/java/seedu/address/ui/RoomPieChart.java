@@ -20,7 +20,7 @@ public class RoomPieChart extends UiPart<Region> {
     private final Logger logger = LogsCenter.getLogger(RoomPieChart.class);
 
     @FXML
-    private StackPane roomPieChartPane;
+    public StackPane roomPieChartPane;
 
     /**
      * Constructor for room pie chart.
